@@ -1,103 +1,107 @@
-# Repository 1 — Aouad, Lykouris & Zhong (2026)
+# Agentic Delegation and the Language Frontier of Software Developers
 
-*Human-AI Productivity Paradoxes: Modeling the Interplay of Skill, Effort, and AI Assistance*
-[arXiv:2605.11350](https://arxiv.org/abs/2605.11350) · [cs.GT]
+**Quispe, Alexander, and Kevin Xu (2026).** “Agentic Delegation and the
+Language Frontier of Software Developers: A Model and Evidence from Claude
+Code on GitHub.” [arXiv:2605.25438v2](https://arxiv.org/abs/2605.25438v2),
+revised July 7, 2026.
 
-> **This is the worked example** for *Artificial Intelligence and Economic
-> Modeling* (UP 2026-II). It shows what a weekly repository looks like when it is
-> done well. Yours does not have to be this long — see "What is required" below.
+## Question and decision rule
 
----
+Can an agentic coding assistant expand the set of programming languages in
+which a developer produces, even without increasing language-specific skill?
+The paper studies a **production frontier**, not a learning frontier. For each
+developer-language-month opportunity, the developer compares the
+certainty-equivalent surplus from solo production (`S`), conversational
+augmentation (`C`), and delegated execution (`D`), then uses the best
+nonnegative mode:
 
-## What question the paper answers
+\[
+V^g=\max_{m\in\mathcal M_g}V^m,\qquad
+Z^g=\mathbf 1\{V^g\ge 0\},\qquad
+\mathcal M_1=\{S,C\}\subset\mathcal M_2=\{S,C,D\}.
+\]
 
-When does AI assistance make a worker **less** productive?
+This is a menu and threshold rule; the paper does not posit a conventional
+effort-maximization problem for this developer.
 
-The paper picks one mechanism and pushes it: AI is a **perfectly substitutable
-input**. Skill $s$, effort $e$ and assistance $a$ enter production only through
-their sum, $x = s + e + a$. Nothing else is going on — no learning, no
-complementarity, no contracting. Everything that follows comes from that single
-modelling choice plus a linear cost of effort.
+## Thresholds and activation
 
-## The agent's problem
+Solo production is viable when the opportunity value \(\omega\) clears
 
-$$\max_{e \ge 0}\; p(s+e+a) - \gamma e$$
+\[
+T^S=b-s\mu+\frac{\rho s^2}{2\pi}.
+\]
 
-with $p$ weakly increasing, concave and twice differentiable, $\gamma > 0$, and
-one constraint that turns out to carry the whole result: $e \ge 0$.
+Conversational augmentation has threshold
+\(T^C=T^S-(\gamma s-r_C)\), so
+\(T^1=\min\{T^S,T^C\}\). Under Assumption 1, augmentation requires a
+language-specific foothold: for an unfamiliar language,
+\(\gamma s-r_C\le0\) and therefore \(T^1=T^S\).
 
-## The main result, with all its conditions
+Delegation instead has threshold
 
-Let $x^{*}$ be the **largest** maximiser of $p(x) - \gamma x$:
+\[
+T^D=b-(1-\lambda)s\mu-\lambda a z(A)+\kappa(a,s)+r_D
++\frac{\rho}{2}\left[\frac{(1-\lambda)^2s^2}{\pi}
++\sigma_D^2(a,s,A)\right].
+\]
 
-$$x^{*} = \max \arg\max_{x} \left[\, p(x) - \gamma x \,\right]$$
+When the agentic advantage \(B\equiv T^S-T^D>0\), delegation activates an
+unfamiliar language exactly in the half-open band
+\([T^D,T^S)\). The band widens when delegated execution and risk substitution
+outweigh verification, compute, and residual-error costs.
 
-This requires a **regularity condition**, without which $x^{*}$ need not exist:
+## Main theoretical and empirical results
 
-$$\limsup_{x \to \infty} \frac{p(x)}{x} < \gamma$$
+Because \(\mathcal M_1\subset\mathcal M_2\), Proposition 1 gives weak,
+pathwise frontier expansion: \(Z^2\ge Z^1\) and \(N^2\ge N^1\). Proposition
+2 sharpens this result for unfamiliar languages under Assumption 1,
+\(B>0\), and a continuous opportunity CDF: the activation probability is
+\(F(T^S)-F(T^D)\), and expected language-count expansion is nonnegative
+(Section 4.2, pp. 15-16).
 
-**Proposition 2.1.** Under those conditions,
+The empirical prediction is a spike in newly used languages at adoption and a
+later accumulation in the portfolio stock. In a 28-month panel of 5,346
+developers built from 3.15 million commits and 57.2 million changed files,
+the adoption-month estimates are +2.528 active languages, +1.193 newly used
+languages, +0.382 language entropy, and +1.604 cumulative languages
+(Section 7 and Table 2). The pre-adoption mean for active languages is 0.90.
+The cumulative outcome is descriptive because its pre-trends are not clean.
 
-$$e^{*}(s,a) = \left(x^{*} - s - a\right)_{+}, \qquad
-  p^{*}(s,a) = \max\left\{ p(x^{*}),\, p(s+a) \right\}$$
+These are **event-time associations**, not definitive causal effects. Claude
+Code adoption is voluntary and may coincide with a new unfamiliar-language
+project. The staggered design and robustness checks address several mechanical
+explanations, but not time-varying project selection (Section 9).
 
-*Intuition in one sentence:* the agent has a single target level of total input,
-tops it up with effort, and once skill plus AI already reach it he stops working.
+## Lean verdict
 
-Two things worth noticing about the proof. It is a **case split** — interior
-versus corner — and contains **no differentiation at all**; and the largest-argmax
-tie-break is not decoration, it is what makes $e^{*}$ well defined when
-$p(x)-\gamma x$ has a flat maximum.
+The independent EconCSLib run exposes five proof endpoints, and all five
+compile without `sorry`, `admit`, or axioms. This is nevertheless
+**partially formalized**: some translations deliberately stop at semantic
+boundaries (the probability/expectation bridges in Propositions 2 and 4 and
+finite support in Proposition 5), and independent v11 semantic closeout remains
+pending.
 
-## Sections 3–5: stated, not derived
+Proposition 3 also contains a genuine endpoint defect. The printed closed-frontier
+domain permits \(p_2=1\), but then
+\(1-(1-p_2)^{s+1}=1\) immediately: the cumulative effect saturates, so strict
+growth and strict discrete concavity fail. Lean refutes the printed strict
+claim at that endpoint and proves the corrected strict result for
+\(0<p_2<1\). Both the paper-scoped build and
+`python3 scripts/paper_contribution.py check QX26AgenticDelegation --fast`
+completed successfully; the latter returned exit code `0`.
 
-The three headline results — the deskilling paradox, the unreliability paradox
-and skill polarisation — use machinery well beyond Section 2: a continuous-time
-birth–death Markov chain and its steady state, Arrow–Pratt risk aversion applied
-to a *production* function with IARA/DARA driving the sign, and Bayesian updating
-over a binary signal. They are worth understanding; they are not worth trying to
-reproduce in a week. See `extra/tutorial-alz-completo.pdf` for the full walk.
+## Hand verification and repository map
 
----
+`hand/prop3-endpoint.jpg` — verificación manual del endpoint `p₂ = 1` de la Proposición 3, donde el efecto se satura y falla el crecimiento estricto.
+**Pending:** the user has not yet supplied this photograph.
 
-## What is in this repository
+| Path | Contents |
+| --- | --- |
+| `lean/` | Independent Lean output, status, audits, proof interfaces, and validation report |
+| `extensions.md` | Distinguishing delegation from a generic productivity shock |
+| `presentation.tex` / `presentation.pdf` | Source and compiled 20-minute deck |
+| `speaker_notes.md` | Timed talk track and question preparation |
+| `hand/` | Pending handwritten endpoint verification |
+| `prompts.md` | Raw Codex prompts and relevant raw responses |
 
-| File | What it is |
-|---|---|
-| `README.md` | This page |
-| `prompts.md` | The full LLM conversation, unedited |
-| `extensions.md` | Which assumptions could be relaxed, and which are dead ends |
-| `hand/` | The derivation of Proposition 2.1, written out by hand |
-| `presentation.tex` / `.pdf` | The 5-minute Beamer deck |
-| `paper/` | The article itself |
-| `extra/` | Above the floor: a full tutorial of the paper and two lecture decks |
-
-## What is required
-
-Only four things. The rest of this repository is above the floor.
-
-1. **`README.md`** — one page: the question, the agent's problem, the main result
-   **with all its conditions**.
-2. **`prompts.md`** — your prompts and the answers, **raw**. Do not tidy them up:
-   the value is in seeing where the model went wrong.
-3. **`hand/`** — at least one photograph of something you derived by hand. Not the
-   whole paper: the one step you did not believe until you did it yourself.
-4. **`presentation.tex` / `.pdf`** — the 5-minute deck, source and compiled.
-
-Deadline is **Tuesday 22:00**, work merged into `main` through a pull request,
-and the repository URL posted as a comment on that week's issue.
-
-## About `hand/`
-
-`hand/prop-2-1-derivacion-a-mano.pdf` is three phone photos of a notebook page.
-That is exactly the standard: crooked, with crossings-out, no transcription. What
-it shows is the first-order condition and the interior-versus-corner split written
-out step by step — the part I did not want to take on trust.
-
-## About the LLM conversation
-
-`prompts.md` is the export of the session that produced the tutorial in `extra/`.
-Read it for what it gets wrong as much as for what it gets right. The episode
-worth studying is on slide 4 of the presentation: asked for "the most natural
-extension", the model confidently proposed relaxing the linear cost — which the
-authors had already done in Appendix D. It took opening the appendix to find out.

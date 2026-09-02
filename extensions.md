@@ -1,53 +1,124 @@
-# Extensions — what could be relaxed, and what is already taken
+# Extension: Can a generic productivity shock mimic frontier expansion?
 
-The paper names its own assumptions in a block just before §1.2, and lists
-exactly three: **substitutability/additivity**, **linear cost**, and **myopic
-users**. That block is the natural starting point, but it needs checking against
-the appendices before anything is claimed to be open.
+The paper argues that delegated execution lowers entry thresholds in unfamiliar
+languages. The observed expansion is consistent with that mechanism, but
+frontier expansion alone need not uniquely identify delegation. This extension
+adds a deliberately non-agentic benchmark: an AI improvement that raises
+productivity without executing, inspecting, or debugging on the developer's
+behalf.
 
-## Dead end: linear → convex cost
+## 1. Assumption modified
 
-This is the first thing anyone suggests, including every LLM I asked. It is
-**already done**. Appendix D is titled *"Extension to convex cost functions
-(Remark 2.3)"* and redoes Sections 2, 3 and 4 under strictly convex $c(e)$, with
-Propositions D.3 and D.6.
+The paper's Generation-1 mode is skill-complementary:
 
-Proposing it as an extension is replication, and it is the clearest example in
-this course of why the appendices have to be read before an idea is called new.
+\[
+V^C=V^S+\gamma s-r_C.
+\]
 
-**But there is a gap inside the gap.** Appendix D covers §§2–4. It does **not**
-cover §5. Convex cost applied to the skill-polarisation result is technically
-untouched — a narrow opening, but a real one.
+Assumption 1 imposes \(\gamma\underline{s}-r_C\le0\) for unfamiliar
+languages, so conversational augmentation cannot move their entry threshold.
+Replace that restriction with a generic, language-independent productivity
+increment \(q\ge0\), still requiring the developer to execute the task:
 
-## Live: myopia
+\[
+V^P=V^S+q-r_P.
+\]
 
-The agent maximises **short-term** utility at each state: he chooses effort to
-maximise current output net of cost, ignoring that effort today changes skill
-tomorrow. The paper is explicit that this is a maintained assumption, and it is
-never relaxed anywhere — no discount factor, no forward-looking agent, nothing.
+Mode \(P\) contains no delegation share \(\lambda\), agent competence
+\(z(A)\), verification technology \(\kappa(a,s)\), or agent-error variance.
 
-A **two-period agent** who internalises the skill transition is the most tractable
-version: solve period 2 as the static problem already characterised, then period 1
-with the continuation value attached. The question worth asking is whether the
-deskilling result survives when the agent can see it coming.
+## 2. Threshold and rule that change
 
-## Harder: complementarity inside $p(\cdot)$
+The non-agentic productivity threshold is
 
-The obvious move — add an interaction term between $s$ and $a$ — is partly
-pre-empted: §4.4 micro-founds AI unreliability as a negative interaction and §5.3
-micro-founds AI literacy as a positive one. So an extension has to change the
-**production primitive itself**, not bolt a term onto it. Harder to make
-tractable, and easier to end up with a model whose results are assumed rather
-than derived.
+\[
+T^P=T^S-(q-r_P).
+\]
 
-## How to tell a real extension from a fake one
+If \(q>r_P\), an unfamiliar language is activated for
+\(\omega\in[T^P,T^S)\). Thus a generic productivity shock can create a band
+and weakly expand the production frontier even though the developer remains
+the executor. With both technologies available, the relevant threshold is
 
-Three questions, in order:
+\[
+T^{\mathrm{post}}=\min\{T^1,T^P,T^D\}.
+\]
 
-1. **Is it in the appendices?** Check before anything else. This is where most
-   proposed extensions die.
-2. **Does one equation change, or all of them?** If relaxing the assumption
-   rewrites the whole model, it is a new paper, not an extension.
-3. **Can you say what you expect to happen?** If you cannot state the expected
-   direction of the result beforehand, you do not yet understand the mechanism
-   well enough to relax it.
+The observed extensive margin alone therefore does not reveal whether
+\(T^P\) or \(T^D\) moved.
+
+## 3. Economic mechanism
+
+Delegation substitutes general specification-and-verification ability for
+language-specific execution. Its threshold reduction
+\(B_D=T^S-T^D\) varies with \(a\), \(s\), \(\lambda\), \(z(A)\),
+\(\kappa\), and residual risk. A generic shock instead lowers the cost of
+producing every opportunity by \(q-r_P\), regardless of who executes or how
+many unfamiliar-language candidates the developer has.
+
+Both mechanisms can increase observed production. Only delegation predicts
+that the effect is especially strong where language-specific execution is weak
+but general specification and verification ability are high.
+
+## 4. Paper result that may cease to identify delegation
+
+Propositions 1 and 2 remain mathematically valid as menu-expansion results,
+but their empirical interpretation is no longer unique. A positive activation
+band is not, by itself, sufficient evidence that delegated execution caused the
+threshold reduction. Proposition 4's specialist-by-ability pattern becomes the
+key discriminating implication rather than a secondary heterogeneity result.
+
+## 5. Distinguishing prediction
+
+Under the generic shock, the threshold shift \(q-r_P\) is common across
+languages and should not systematically grow with a developer's
+specification-and-verification ability. Conditional on activity, expansion
+should be broadly proportional across familiar and unfamiliar work.
+
+Under delegation, expansion should be concentrated among developers with:
+
+1. many unfamiliar candidates (high headroom),
+2. strong independent proxies for specification and verification ability, and
+3. tasks where execution traces show file edits, commands, tests, and iterative
+   repair by the agent.
+
+A useful estimand is therefore a triple difference: post-adoption change by
+pre-adoption portfolio breadth, independently measured ability, and task-level
+delegation intensity. A generic shock predicts little systematic interaction
+with the last two margins; delegation predicts a positive interaction.
+
+## 6. Evidence and design required
+
+The current volume proxy is not a clean measure of ability. A stronger design
+would combine account age, accepted pull requests, code-review history, and
+organizational role with task-level execution traces. Exogenous variation in
+access to agentic execution - for example, an institutional feature rollout -
+could be crossed with continued access to conversational assistance. The most
+informative outcomes would separate agent-authored commits, unassisted commits,
+familiar-language work, and first uses of unfamiliar languages.
+
+## 7. Why this is not already resolved in the appendices
+
+The Theory Appendix derives the CARA-Normal certainty equivalent, threshold
+algebra, Propositions 1-5, specialist and ability heterogeneity, Bayesian
+learning after agentic interaction, and repository expansion. It does not
+introduce a language-independent non-agentic mode \(V^P\) or derive conditions
+under which that mode is observationally equivalent to delegation on the
+extensive margin. The empirical appendix studies robustness to activity volume
+and tool classification, but does not identify the threshold shift separately.
+
+The paper itself notes that a uniform activity shock has difficulty matching
+the specialist pattern and that causal separation requires exogenous adoption
+variation. This extension turns that interpretive objection into an explicit
+alternative model and a discriminating test; it does not claim that the paper
+already provides that test.
+
+## 8. Limitations
+
+The common increment \(q\) is intentionally stark. A real non-agentic tool may
+also be skill-complementary, task-specific, or selected in response to project
+shocks, in which case its predictions can approach those of delegation. Task
+traces may misclassify who executed the work, and ability proxies may remain
+endogenous. The extension identifies what additional variation is needed; it
+does not convert the current event study into a causal decomposition.
+
