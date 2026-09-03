@@ -3549,3 +3549,393 @@ GitHub CLI devolvió una lista vacía de PRs. El repositorio continúa público 
 - Ensayar el guion y ajustar duración si fuera necesario.
 - En una fase posterior: revisión final, PR, merge y comentario del URL en el issue.
 
+
+## Turn 14
+
+### Prompt
+
+Iniciemos la Fase 6: integrar la evidencia manuscrita y ejecutar el control final previo al pull request.
+
+Realicé la derivación manuscrita. El archivo ya existe en esta ruta exacta:
+```text
+C:\Users\marce\Downloads\hand part.png
+```
+
+Usa la ruta como literal porque contiene un espacio.
+
+El destino debe ser:
+```text
+C:\Users\marce\Documents\GitHub\ai-03-quispe\hand\prop3-endpoint.png
+```
+
+Decisiones:
+
+- Conserva el formato PNG.
+- No conviertas la imagen a JPG.
+- No alteres el contenido matemático.
+- No generes ni reconstruyas escritura.
+- No recortes la derivación.
+- No apliques filtros ni edición mediante IA.
+- La imagen ya está en orientación horizontal.
+- Actualiza las referencias anteriores de `prop3-endpoint.jpg` a `prop3-endpoint.png`.
+
+Autorizaciones:
+
+- inspeccionar y copiar la fotografía
+- actualizar README, presentación y speaker notes
+- recompilar y revisar visualmente el deck
+- actualizar `prompts.md` con la Fase 5 completa
+- ejecutar controles integrales del repositorio
+- crear commits
+- hacer push a `analysis`
+- abrir localmente el PDF para revisión del usuario
+
+Todavía no está autorizado:
+
+- modificar archivos dentro de `lean/`
+- abrir el pull request
+- hacer merge
+- comentar el issue del curso
+- editar o reemplazar el contenido de la fotografía
+
+Paso 1: control inicial
+
+Trabaja en:
+```text
+C:\Users\marce\Documents\GitHub\ai-03-quispe
+```
+
+Verifica:
+```bash
+git status --short
+git branch --show-current
+git log --oneline --decorate -8
+```
+
+Debe cumplirse:
+
+- branch `analysis`
+- working tree limpio
+- commits de la Fase 5 presentes
+- `analysis` sincronizado con `origin/analysis`
+- ausencia de pull request
+- `lean/` sin modificaciones
+
+Paso 2: inspeccionar la fotografía
+
+Inspecciona exactamente:
+```powershell
+Get-Item -LiteralPath "C:\Users\marce\Downloads\hand part.png"
+```
+
+Registra:
+
+- formato real
+- dimensiones
+- tamaño
+- orientación
+- hash SHA-256
+- integridad del archivo
+
+Confirma visualmente que contiene:
+
+- la ecuación del cumulative gap
+- `p₁=0`
+- `p₂=1`
+- `G_s=1`
+- `G_{s+1}-G_s=0`
+- segunda diferencia igual a cero
+- conclusión sobre saturación inmediata
+- condición corregida `0<p₂<1`
+
+Si el archivo no existe o no puede abrirse, detente y reporta el error exacto. No busques ni uses otra imagen.
+
+Paso 3: integrar la imagen
+
+Crea `hand/` si fuera necesario.
+
+Copia el archivo mediante una operación literal:
+```powershell
+Copy-Item -LiteralPath "C:\Users\marce\Downloads\hand part.png" -Destination "C:\Users\marce\Documents\GitHub\ai-03-quispe\hand\prop3-endpoint.png"
+```
+
+Conserva el archivo original en Descargas.
+
+Comprueba que el hash del origen y destino coincide.
+
+No alteres la imagen salvo que exista una rotación técnica causada por metadatos. Si no existe ese problema, conserva los bytes exactamente.
+
+Paso 4: actualizar referencias
+
+Busca referencias a:
+```text
+prop3-endpoint.jpg
+Pending handwritten verification
+foto pendiente
+photograph pending
+```
+
+Actualiza los entregables para usar:
+```text
+hand/prop3-endpoint.png
+```
+
+El README debe incluir esta línea:
+```markdown
+`hand/prop3-endpoint.png` — verificación manual del endpoint `p₂ = 1` de la Proposición 3, donde el efecto se satura y falla el crecimiento estricto.
+```
+
+Elimina cualquier indicación de que la foto está pendiente.
+
+Actualiza:
+```text
+README.md
+presentation.tex
+speaker_notes.md
+```
+
+No cambies el análisis económico ni la formalización Lean.
+
+Paso 5: recompilar el deck
+
+Verifica que `\IfFileExists` apunte al archivo PNG correcto.
+
+Compila desde WSL:
+```bash
+latexmk -C
+latexmk -pdf -interaction=nonstopmode -halt-on-error presentation.tex
+```
+
+Confirma:
+
+- exit code `0`
+- 13 páginas
+- fotografía visible en la slide 12
+- ausencia del placeholder
+- imagen completa y legible
+- proporción conservada
+- ausencia de contenido cortado
+- ausencia de overfull boxes materiales
+
+Si la imagen no encaja, modifica únicamente las dimensiones de `\includegraphics` en LaTeX y utiliza `keepaspectratio`.
+
+No recortes ni edites el PNG.
+
+Paso 6: revisión visual
+
+Renderiza las 13 páginas y revísalas.
+
+Presta especial atención a:
+
+- slide 1: URL del repositorio
+- slide 2: auditoría de la cita
+- slides 4 a 7: modelo y resultados
+- slide 8: cifras empíricas
+- slide 10: comparación con Aouad
+- slide 11: statement y prueba Lean
+- slide 12: fotografía manuscrita
+- slide 13: extensión y conclusión
+
+Comprueba:
+
+- ausencia de texto cortado
+- ausencia de solapes
+- fuentes legibles
+- ecuaciones completas
+- código Lean visible
+- fotografía suficientemente grande para exposición
+- ausencia de screenshots del paper
+- ausencia de placeholders
+
+Paso 7: actualizar `prompts.md`
+
+Añade el prompt y la respuesta completos de la Fase 5 usando el transcript raw disponible.
+
+No resumas.
+
+No corrijas la redacción.
+
+Conserva outputs, resultados, commits y pendientes.
+
+No incluyas todavía la respuesta de esta Fase 6.
+
+Paso 8: auditoría final del repositorio
+
+Verifica que existan y estén rastreados:
+```text
+README.md
+prompts.md
+extensions.md
+speaker_notes.md
+hand/prop3-endpoint.png
+presentation.tex
+presentation.pdf
+lean/
+```
+
+Busca:
+```text
+TODO
+TBD
+REPLACE
+replace_with_lean_name
+Pending handwritten verification
+prop3-endpoint.jpg
+Aouad template
+ai-01-aouad
+```
+
+Evalúa las coincidencias en contexto.
+
+Son válidas:
+
+- referencias académicas verificadas a Aouad
+- menciones dentro del transcript raw
+- resultados parciales documentados en `lean/`
+
+No son válidos placeholders o referencias activas a una fotografía pendiente.
+
+Paso 9: privacidad
+
+Confirma mediante `git ls-files` y `git status --ignored` que no estén rastreados:
+
+- PDF fuente del paper
+- source de arXiv
+- `statement-spec.json`
+- tokens
+- códigos de dispositivo vigentes
+- credenciales
+- caches
+- auxiliares de LaTeX
+
+No uses `git add -f`.
+
+Paso 10: commits
+
+Crea primero:
+```bash
+git add hand/prop3-endpoint.png README.md presentation.tex presentation.pdf speaker_notes.md
+git diff --cached --check
+git diff --cached --stat
+git commit -m "Add handwritten verification and finalize deck"
+git push origin analysis
+```
+
+Después:
+```bash
+git add prompts.md
+git diff --cached --check
+git diff --cached --stat
+git commit -m "Update raw prompt transcript"
+git push origin analysis
+```
+
+No abras todavía el pull request.
+
+Paso 11: validación remota
+
+Verifica:
+```bash
+git status --short
+git log --oneline --decorate -10
+git diff origin/main...analysis --stat
+```
+
+Confirma mediante GitHub CLI:
+
+- `analysis` local y remoto en el mismo hash
+- working tree limpio
+- `main` sin cambios
+- fotografía visible en el branch remoto
+- `presentation.pdf` disponible
+- ausencia de pull request
+
+Abre localmente:
+```text
+C:\Users\marce\Documents\GitHub\ai-03-quispe\presentation.pdf
+```
+
+para que el usuario pueda revisar el deck.
+
+Paso 12: reporte
+
+Tu respuesta debe incluir:
+
+1. Dimensiones, tamaño y hash de la fotografía.
+2. Confirmación de coincidencia entre origen y destino.
+3. Confirmación de que no se editó el contenido.
+4. Referencias actualizadas.
+5. Resultado de compilación.
+6. Número de slides.
+7. Confirmación de que la foto aparece en la slide 12.
+8. Resultado de la revisión visual.
+9. Placeholders encontrados y tratamiento.
+10. Archivos obligatorios presentes.
+11. Resultado del control de privacidad.
+12. Actualización de `prompts.md`.
+13. Commits creados.
+14. Estado de `analysis`.
+15. Confirmación de que `main` no cambió.
+16. Confirmación de que no existe PR.
+17. Pendientes antes del cierre.
+
+Detente después de abrir el PDF y hacer push a `analysis`.
+
+
+### Relevant raw response
+
+Voy a usar las skills de presentaciones y PDF porque esta fase modifica, recompila y exige una revisión visual completa del deck. Primero validaré `analysis` y leeré nuevamente sus instrucciones; después inspeccionaré la fotografía exactamente en la ruta indicada, sin copiarla ni alterar bytes hasta confirmar formato, integridad y contenido.
+
+Retomo desde la Fase 6. Primero validaré el estado exacto del branch y la fotografía; si la imagen contiene todos los elementos matemáticos indicados, la copiaré sin alterar un solo byte y pasaré a actualizar y recompilar el deck.
+
+La fotografía es válida y completa: es un PNG horizontal de 2331×998 px y muestra la ecuación del gap, `p₁=0`, `p₂=1`, `G_s=1`, ambas diferencias nulas, la saturación y la corrección `0<p₂<1`. El repositorio está limpio en `analysis`, sincronizado con su remoto conocido, y `lean/` no cambió desde su integración; la consulta de PR falló solo por la red restringida y la repetiré al validar el remoto.
+
+La copia de destino coincide byte por byte con el original (SHA-256 `3550D810…92B9D`). Actualicé las referencias activas a PNG y convertí la rama alternativa de `\IfFileExists` en un error explícito de compilación si faltara la evidencia, evitando que el deck pueda volver a mostrar un placeholder engañoso. Ahora recompilo desde cero y revisaré las 13 páginas renderizadas.
+
+La compilación finalizó correctamente: 13 páginas y la propia salida de LaTeX confirma que `hand/prop3-endpoint.png` se incorporó en la página 12. Revisé visualmente las 13 slides; no hay cortes, solapes ni placeholders, y la fotografía conserva su proporción y es legible. Solo permanecen sustituciones tipográficas benignas de Computer Modern; no hay `overfull` ni `underfull` boxes. Sigo con el transcript raw y la auditoría integral antes de los dos commits.
+
+La auditoría previa al commit no encontró placeholders activos ni material privado rastreado. Las únicas coincidencias antiguas de `.jpg` y “Pending” están dentro de `prompts.md` como transcript histórico; los archivos activos usan PNG. Los auxiliares de LaTeX y las fuentes privadas dentro de `lean/` siguen ignorados. Incluí además `hand/README.md` en el primer commit porque contenía una referencia activa heredada a `.jpg`.
+
+Ambos commits ya están publicados. Haré la última comprobación contra GitHub —hashes de branches, visibilidad, archivos remotos y ausencia de PR— y después abriré el PDF en Codex para tu revisión, sin modificar nada más.
+
+La Fase 6 quedó completada y publicada en `analysis`. El PDF final se abrió en el visor local para tu revisión.
+
+1. Fotografía: PNG íntegro, horizontal, `2331 × 998 px`, `238,656 bytes`. SHA-256: `3550D810C3C6DCD41650B871B2C902D98346FAF253E0C7A80722C46E6DD92B9D`.
+
+2. Origen y destino tienen exactamente el mismo hash. El original permanece en Descargas.
+
+3. No se recortó, convirtió, filtró, rotó ni alteró la imagen.
+
+4. Se actualizaron las referencias en [README.md](C:\Users\marce\Documents\GitHub\ai-03-quispe\README.md), [presentation.tex](C:\Users\marce\Documents\GitHub\ai-03-quispe\presentation.tex), [speaker_notes.md](C:\Users\marce\Documents\GitHub\ai-03-quispe\speaker_notes.md) y `hand/README.md`.
+
+5. `latexmk -C` y la compilación completa terminaron correctamente. Exit code final: `0`.
+
+6. El deck contiene exactamente 13 slides.
+
+7. La fotografía aparece completa, legible y con proporción conservada en la slide 12. El fallback ahora produce un error si falta la imagen, en lugar de mostrar un placeholder.
+
+8. Las 13 páginas fueron renderizadas y revisadas visualmente. No se observaron cortes, solapes, ecuaciones incompletas ni problemas de legibilidad.
+
+9. No quedan placeholders activos. Las coincidencias históricas de `.jpg` y `Pending handwritten verification` permanecen exclusivamente en el transcript raw; las apariciones de “Replace” en el análisis son lenguaje académico válido.
+
+10. Están presentes y rastreados `README.md`, `prompts.md`, `extensions.md`, `speaker_notes.md`, `hand/prop3-endpoint.png`, `presentation.tex`, `presentation.pdf` y los 27 archivos de `lean/`.
+
+11. Privacidad: no están rastreados el PDF fuente, source de arXiv, `statement-spec.json`, auxiliares de LaTeX, caches ni credenciales. El escaneo de patrones de secretos dio cero coincidencias.
+
+12. `prompts.md` recibió el Turn 13 con el prompt completo de la Fase 5 y sus diez respuestas raw disponibles: 613 líneas añadidas. La Fase 6 todavía no fue incorporada.
+
+13. Commits publicados:
+
+   - `10c08e6d0378494509295eae4702800ae4ecea58` — `Add handwritten verification and finalize deck`
+   - `17823e7727056dafd1707210928bf571166f456f` — `Update raw prompt transcript`
+
+14. `analysis` local y `origin/analysis` coinciden en `17823e7727056dafd1707210928bf571166f456f`; working tree limpio.
+
+15. `main` local y remoto permanecen sin cambios en `16fba42400bf05cb3fda09f137aae87dd51d51b1`.
+
+16. GitHub confirma que el repositorio continúa público y que no existe ningún pull request. `lean/` tampoco fue modificado.
+
+17. Pendientes antes del cierre: revisar visualmente el PDF abierto, incorporar esta Fase 6 al transcript en la próxima fase y, con tu autorización, abrir el PR, revisar sus tres líneas sustantivas, hacer merge y comentar el issue del curso.
+
+:codex-file-citation{path="C:\Users\marce\Documents\GitHub\ai-03-quispe\presentation.pdf" purpose="output"}
+
