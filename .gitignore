@@ -18,3 +18,7 @@ DNI*
 
 # The article itself: third-party PDF, fetch it from arXiv
 paper/*.pdf
+
+# Private EconCSLib audit inputs
+/lean/source.txt
+/lean/statement-spec.json

@@ -1,0 +1,28 @@
+\documentclass[tikz,border=10pt]{standalone}
+\input{../../../docs/tikz/dag_preamble.tex}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,every node/.append style={outer sep=4pt}]
+\dagPaperMetadata{Agentic Delegation and the Language Frontier of Software Developers}{Alexander Quispe and Kevin Xu}{arXiv v2}{2026}{https://arxiv.org/abs/2605.25438v2}
+\dagPaperLegendRightOfMetadata{
+\node[dag_result, dag_template_legend] (legRes) at (0,0) {proved};
+\node[dag_caveat_legend] (legCav) at (4.2,0) {corrected caveat};
+\node[dag_partial, dag_template_legend] (legPart) at (8.4,0) {partial};
+}
+\daglegend{(legRes)(legCav)(legPart)}{Legend}
+\begin{dagPaperBody}
+\node[dag_model] (A1) at (0,0) {\textbf{Assumption 1}\\Augmentation foothold};
+\node[dag_model] (A2) at (6.4,0) {\textbf{Assumption 2}\\Verification technology};
+\node[dag_result] (P1) at (0,-3.2) {\textbf{Proposition 1}\\Frontier expansion\\proved};
+\node[dag_result] (P2) at (6.4,-3.2) {\textbf{Proposition 2}\\Activation band\\proved};
+\node[dag_caveat] (P3) at (12.8,-3.2) {\textbf{Proposition 3}\\Corrected endpoint\\printed endpoint refuted};
+\node[dag_model] (A3) at (6.4,-6.4) {\textbf{Assumption 3}\\Comparable candidates};
+\node[dag_result] (P4) at (12.8,-6.4) {\textbf{Proposition 4}\\Specialist/ability\\proved};
+\node[dag_partial] (P5) at (3.2,-9.6) {\textbf{Proposition 5}\\Repository expansion\\finite support};
+\draw[dag_arrow] (A1) -- (P2);
+\draw[dag_arrow] (A2) -- (P2);
+\draw[dag_arrow] (A2) -- (A3);
+\draw[dag_arrow] (A3) -- (P4);
+\draw[dag_arrow] (P1) -- (P5);
+\end{dagPaperBody}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,250 @@
+{
+  "schema": 1,
+  "paper": "QX26AgenticDelegation",
+  "source_url": "https://arxiv.org/abs/2605.25438v2",
+  "source_version": "arXiv v2, 2026-07-07",
+  "source_artifact_path": "papers/QX26AgenticDelegation/source.txt",
+  "source_artifact_sha256": "57092bea554d7047cbf45c3437521dd9809b632f5fd2c710c2fd0e6d783b1bb5",
+  "source_inventory_kind": "independent_named_theoretical_statement_inventory",
+  "source_curated": true,
+  "seed_scaffold": false,
+  "source_coverage_mode": "named_theoretical_statements",
+  "semantic_contract_policy": {
+    "schema": 1,
+    "activation": "Before Lean drafting, independently inventory every material source atom against exact pinned source quote bytes; do not infer that inventory from declaration, binder, field, or function names. After a source item has an audited paper-local specification and a theorem/lemma proving or refuting it, add top-level semantic_contract_schema: 1, classify every item with an explicit claim_bearing Boolean, and record semantic_contract for each true item. At formalized closeout, also add source_claim_atoms_schema: 1 and source_spec_correspondence_schema: 1. Bind each atom to an elaborated Spec component and account for every material Lean-closure terminal, including proof and instance arguments, by source atom, approved source correction/additional assumption, checked Lean derivation, or version-pinned foundation basis. Each statement-first row supplies an inactive semantic_contract_template pairing its transparent `...Spec : Prop` with its theorem/lemma. Promote that exact template only after the independent source audit passes, the theorem has exactly the transparent Spec type, the closure record passes, and the proof hole is replaced. Do not manufacture a contract from the temporary by-sorry statement skeleton alone. Legacy v10 evidence remains readable but is not a v11 realization credential. For a source-game result whose feasible-action equilibrium comparison uses a conditional/posterior or observation-contingent value, add the separately byte-pinned `semantic_context_requirements` kind `strategic_observation_totality`; it requires an explicit off-path/zero-probability totality audit and cannot be satisfied by a Lean-only default value.",
+    "required_fields": [
+      "spec_declaration",
+      "evidence_declaration",
+      "evidence_mode",
+      "semantic_shape"
+    ],
+    "evidence_modes": [
+      "proves",
+      "refutes"
+    ],
+    "semantic_shapes": [
+      "plain"
+    ],
+    "shape_policy": "Only plain exact-proposition contracts are currently enforced. Do not record a specialized runtime, preprocessing, or refinement shape until the audit implements its structural check.",
+    "source_defect_routing": "Every repaired_in_lean source-proof defect must be linked from a successfully checked contract item through source_defect_ids."
+  },
+  "items": {
+    "assumption1AugmentationRequiresFoothold": {
+      "statement": "For unfamiliar languages the net Generation-1 augmentation gain is weakly nonpositive; for familiar languages it is strictly positive.",
+      "source_item": "Assumption 1 (Augmentation requires a foothold)",
+      "source_kind": "assumption",
+      "source_location": "papers/QX26AgenticDelegation/source.txt:408-409",
+      "source_url": "https://arxiv.org/abs/2605.25438v2",
+      "source_status": "verbatim source anchor independently inventoried",
+      "claim_bearing": false,
+      "lean_declarations": [
+        "augmentationRequiresFoothold"
+      ],
+      "source_anchor_evidence": [
+        {
+          "path": "papers/QX26AgenticDelegation/source.txt",
+          "line_start": 408,
+          "line_end": 409,
+          "quoted_text": "Assumption 1 (Augmentation requires a foothold). For unfamiliar languages with skill s,\n\u03b3s \u2212 rC \u2264 0. For familiar languages with skill s\u0304, \u03b3s\u0304 \u2212 rC > 0.",
+          "quoted_text_sha256": "0e9be865cd7880dbfa2cb3eabb55cec2ff657a0ec0eefd18e1ac6ce11215ce45"
+        }
+      ]
+    },
+    "assumption2VerificationTechnology": {
+      "statement": "Verification cost and residual-error derivatives have the five signs printed in Assumption 2.",
+      "source_item": "Assumption 2 (Verification technology)",
+      "source_kind": "assumption",
+      "source_location": "papers/QX26AgenticDelegation/source.txt:410-418",
+      "source_url": "https://arxiv.org/abs/2605.25438v2",
+      "source_status": "verbatim source anchor independently inventoried",
+      "claim_bearing": false,
+      "lean_declarations": [
+        "verificationTechnology"
+      ],
+      "source_anchor_evidence": [
+        {
+          "path": "papers/QX26AgenticDelegation/source.txt",
+          "line_start": 410,
+          "line_end": 418,
+          "quoted_text": "Assumption 2 (Verification technology). Verification costs and residual error are weakly\nlower for stronger developers, more familiar languages, and more capable agents: \u03baa < 0,\n2\n2\n2\n\u03bas \u2264 0, and \u2202\u03c3D\n/\u2202a \u2264 0, \u2202\u03c3D\n/\u2202s \u2264 0, \u2202\u03c3D\n/\u2202A \u2264 0.",
+          "quoted_text_sha256": "9db2f6cc96b2fda86fcbcce915e6fb68ee81b7d74e5ec97d6818812012e83d93"
+        }
+      ]
+    },
+    "frontierExpansion": {
+      "statement": "Because the Generation-2 menu contains the Generation-1 menu, activity weakly expands for every developer-language-date-opportunity realization and language counts weakly expand path by path.",
+      "source_item": "Proposition 1 (Frontier expansion)",
+      "source_kind": "proposition",
+      "source_location": "papers/QX26AgenticDelegation/source.txt:515-520",
+      "source_url": "https://arxiv.org/abs/2605.25438v2",
+      "source_status": "verbatim source anchor independently inventoried",
+      "claim_bearing": true,
+      "spec_lean_declarations": [
+        "frontierExpansionSpec"
+      ],
+      "proof_lean_declarations": [
+        "frontierExpansion"
+      ],
+      "semantic_contract": {
+        "spec_declaration": "frontierExpansionSpec",
+        "evidence_declaration": "frontierExpansion",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      },
+      "source_anchor_evidence": [
+        {
+          "path": "papers/QX26AgenticDelegation/source.txt",
+          "line_start": 515,
+          "line_end": 520,
+          "quoted_text": "Proposition 1 (Frontier expansion). For every developer, language, date, and opportunity\n2\n1\nrealization, Zik,t\n\u2265 Zik,t\n, hence Nit2 \u2265 Nit1 path by path.",
+          "quoted_text_sha256": "ee8eb0dc04c7e3bef8894553ebd744e425397af137f4b57aebbecaea287471e5"
+        }
+      ]
+    },
+    "activationBandUnfamiliar": {
+      "statement": "For an unfamiliar language, agentic delegation activates the language exactly when the delegation threshold lies in the half-open interval [T^D,T^S). Consequently, the expected expansion equals the sum across languages of the associated CDF differences and is nonnegative.",
+      "source_item": "Proposition 2 (Activation band for unfamiliar languages)",
+      "source_kind": "proposition",
+      "source_location": "papers/QX26AgenticDelegation/source.txt:524-572",
+      "source_url": "https://arxiv.org/abs/2605.25438v2",
+      "source_status": "verbatim source anchor independently inventoried",
+      "coverage_status": "partial",
+      "claim_bearing": true,
+      "spec_lean_declarations": [
+        "activationBandUnfamiliarSpec"
+      ],
+      "proof_lean_declarations": [
+        "activationBandUnfamiliar"
+      ],
+      "semantic_contract": {
+        "spec_declaration": "activationBandUnfamiliarSpec",
+        "evidence_declaration": "activationBandUnfamiliar",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      },
+      "source_anchor_evidence": [
+        {
+          "path": "papers/QX26AgenticDelegation/source.txt",
+          "line_start": 524,
+          "line_end": 572,
+          "quoted_text": "Proposition 2 (Activation band for unfamiliar languages). Consider an unfamiliar language\nsatisfying Assumption 1. If Bik,t > 0, then\nh\n\ni\n\n2\n1\nD\nS\nZik,t\n\u2212 Zik,t\n= 1 Tik,t\n\u2264 \u03c9ik,t < Tik,t\n.\n\n13\n\n(8)\n\n\fIf the conditional opportunity CDF Fik,t is continuous, the probability that delegation activates\nS\nD\nthe language is Fik,t (Tik,t\n) \u2212 Fik,t (Tik,t\n), and the expected language-count expansion is\n\nh\n\ni\n\nE Nit2 \u2212 Nit1 =\n\nXh\n\n\u0010\n\n\u0011\n\n\u0010\n\n1\n2\nFik,t Tik,t\n\u2212 Fik,t Tik,t\n\n\u0011i\n\n\u2265 0.",
+          "quoted_text_sha256": "123be9a1b9cd0bf98cd85de8647c5ce803ab5516ad8699087ef147ef46102faf"
+        }
+      ]
+    },
+    "dynamicCumulativeLanguageEffectCorrected": {
+      "statement": "The printed proposition assumes p1 = 0 < p2 and states that the cumulative language gap is strictly increasing and strictly concave over time. The endpoint p2 = 1 makes those strict claims false after immediate saturation. This target preserves the weak conclusion on the printed domain and states the strict conclusions under the necessary additional condition p2 < 1; the printed claim is archived and refuted separately.",
+      "source_item": "Proposition 3 (Dynamic cumulative-language effect), corrected strict version",
+      "source_kind": "proposition",
+      "source_location": "papers/QX26AgenticDelegation/source.txt:646-663",
+      "source_url": "https://arxiv.org/abs/2605.25438v2",
+      "source_status": "printed strict endpoint is false at p2=1; corrected endpoint adds p2<1",
+      "coverage_status": "partial",
+      "claim_bearing": true,
+      "spec_lean_declarations": [
+        "dynamicCumulativeLanguageEffectCorrectedSpec"
+      ],
+      "proof_lean_declarations": [
+        "dynamicCumulativeLanguageEffectCorrected"
+      ],
+      "semantic_contract": {
+        "spec_declaration": "dynamicCumulativeLanguageEffectCorrectedSpec",
+        "evidence_declaration": "dynamicCumulativeLanguageEffectCorrected",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      },
+      "source_anchor_evidence": [
+        {
+          "path": "papers/QX26AgenticDelegation/source.txt",
+          "line_start": 646,
+          "line_end": 663,
+          "quoted_text": "Proposition 3 (Dynamic cumulative-language effect). For an initially unfamiliar language,\nlet pgik be the per-period first-use hazard under generation g. If p2ik \u2265 p1ik , the expected\ncumulative-language effect at event-time horizon s is\n\n\u2206Ci (s) =\n\nX h\n\ni\n\n(1 \u2212 p1ik )s+1 \u2212 (1 \u2212 p2ik )s+1 \u2265 0,\n\n(10)\n\nk\u2208Ui\n\nwhich in the closed-frontier benchmark p1ik = 0 < p2ik is strictly increasing and concave over\nthe observed horizon.",
+          "quoted_text_sha256": "ef12b0340d4f4490cb96efb1314fa4843cb6ed0bfaabd40421caebc310615716"
+        }
+      ]
+    },
+    "assumption3ComparableUnfamiliarLanguageCandidates": {
+      "statement": "All unfamiliar candidates share a common nonnegative activation increment, weakly increasing in ability under the stated verification mechanism.",
+      "source_item": "Assumption 3 (Comparable unfamiliar-language candidates)",
+      "source_kind": "assumption",
+      "source_location": "papers/QX26AgenticDelegation/source.txt:3017-3020",
+      "source_url": "https://arxiv.org/abs/2605.25438v2",
+      "source_status": "verbatim source anchor independently inventoried",
+      "claim_bearing": false,
+      "lean_declarations": [
+        "comparableUnfamiliarLanguageCandidates"
+      ],
+      "source_anchor_evidence": [
+        {
+          "path": "papers/QX26AgenticDelegation/source.txt",
+          "line_start": 3017,
+          "line_end": 3020,
+          "quoted_text": "Assumption 3 (Comparable unfamiliar-language candidates). Conditional on developer\ncharacteristics such as general ability, all unfamiliar languages have the same per-language\nactivation increment pi (ai , A) \u2265 0, and pi is increasing in ai whenever Assumption 2 makes\ndelegation thresholds fall with ability.",
+          "quoted_text_sha256": "ca63fba4ae0d81bd453198654a858c319e5f8512b44ec760d2266f6d57762eca"
+        }
+      ]
+    },
+    "specialistAbilityHeterogeneity": {
+      "statement": "Expected language expansion is weakly larger for developers with more unfamiliar candidate languages and for developers with greater ability, when ability weakly raises the activation probability.",
+      "source_item": "Proposition 4 (Specialist and ability heterogeneity)",
+      "source_kind": "proposition",
+      "source_location": "papers/QX26AgenticDelegation/source.txt:3021-3044",
+      "source_url": "https://arxiv.org/abs/2605.25438v2",
+      "source_status": "verbatim source anchor independently inventoried; increasing interpreted weakly",
+      "coverage_status": "partial",
+      "claim_bearing": true,
+      "spec_lean_declarations": [
+        "specialistAbilityHeterogeneitySpec"
+      ],
+      "proof_lean_declarations": [
+        "specialistAbilityHeterogeneity"
+      ],
+      "semantic_contract": {
+        "spec_declaration": "specialistAbilityHeterogeneitySpec",
+        "evidence_declaration": "specialistAbilityHeterogeneity",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      },
+      "source_anchor_evidence": [
+        {
+          "path": "papers/QX26AgenticDelegation/source.txt",
+          "line_start": 3021,
+          "line_end": 3044,
+          "quoted_text": "Proposition 4 (Specialist and ability heterogeneity). Under Assumption 3, expected expan-\n\n60\n\n\fsion into initially unfamiliar languages is\n\nE[Ei | ai , Ui ] = Ui pi (ai , A),\n\nEi \u2261\n\nX\n\n1\n2\n).\n\u2212 Zik\n(Zik\n\n(22)\n\nk\u2208Ui\n\nIt is increasing in the stock of unfamiliar-language candidates Ui and in general ability ai .\nThe largest extensive-margin gains accrue to high-ability specialists.",
+          "quoted_text_sha256": "3178b9b53fda4eafe95ed0bbc6c45d78b8790a677926506606757ce2c682a7e6"
+        }
+      ]
+    },
+    "repositoryExpansion": {
+      "statement": "Each repository has a required language; weakly lower entry costs weakly expand expected repository contribution, with strict expansion under positive probability mass in an activation band.",
+      "source_item": "Proposition 5 (Repository expansion)",
+      "source_kind": "proposition",
+      "source_location": "papers/QX26AgenticDelegation/source.txt:3197-3207",
+      "source_url": "https://arxiv.org/abs/2605.25438v2",
+      "source_status": "verbatim source anchor independently inventoried; Lean endpoint uses an explicit finite-support expectation",
+      "coverage_status": "partial",
+      "claim_bearing": true,
+      "spec_lean_declarations": [
+        "repositoryExpansionSpec"
+      ],
+      "proof_lean_declarations": [
+        "repositoryExpansion"
+      ],
+      "semantic_contract": {
+        "spec_declaration": "repositoryExpansionSpec",
+        "evidence_declaration": "repositoryExpansion",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      },
+      "source_anchor_evidence": [
+        {
+          "path": "papers/QX26AgenticDelegation/source.txt",
+          "line_start": 3197,
+          "line_end": 3207,
+          "quoted_text": "Proposition 5 (Repository expansion). Suppose each repository requires at least one programming language and carries an entry cost that is weakly decreasing when the developer can\nactivate that language. If agentic delegation weakly expands the active-language set, then the\nexpected number of repositories the developer can contribute to weakly increases. It increases\nstrictly when some repositories require languages in the delegation activation band.\nProof. Let repository r require language \u2113(r) and deliver opportunity value \u2126ir,t . Write its\nentry condition as \u2126ir,t \u2265 cr (\u2113(r), g) under generation g, where cr (\u2113, 2) \u2264 cr (\u2113, 1) whenever\ndelegation weakly lowers the activation threshold for language \u2113. The repository indicator\nunder Generation 2 therefore weakly exceeds the Generation-1 indicator for every repository\nopportunity. Summing over repositories and taking expectations gives weak expansion; strict\nexpansion follows if the opportunity distribution places positive mass on repositories whose\nrequired language lies in the activation band.",
+          "quoted_text_sha256": "aebadf9058a1f7af6a5c55792d8b42d4bd3d7be03c0a8037afdc3b135be9bd79"
+        }
+      ]
+    }
+  }
+}
