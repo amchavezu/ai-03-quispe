@@ -222,9 +222,9 @@ seven lines of algebra.”
 
 ## Slide 12 - Handwritten verification (1:15)
 
-If the photograph is present, point to each line rather than rereading the
-slide. If the placeholder is still visible, say explicitly that the academic
-artifact is pending and do not imply that a synthetic image is evidence.
+Point to each handwritten line rather than rereading the slide. The photograph
+is the user's original derivation and is displayed without cropping or content
+editing.
 
 The check uses one unfamiliar language, `p_1=0`, and `p_2=1`. Substitute these
 values into the one-language cumulative gap. The result equals one for every

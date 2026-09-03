@@ -93,8 +93,7 @@ completed successfully; the latter returned exit code `0`.
 
 ## Hand verification and repository map
 
-`hand/prop3-endpoint.jpg` — verificación manual del endpoint `p₂ = 1` de la Proposición 3, donde el efecto se satura y falla el crecimiento estricto.
-**Pending:** the user has not yet supplied this photograph.
+`hand/prop3-endpoint.png` — verificación manual del endpoint `p₂ = 1` de la Proposición 3, donde el efecto se satura y falla el crecimiento estricto.
 
 | Path | Contents |
 | --- | --- |
@@ -104,4 +103,3 @@ completed successfully; the latter returned exit code `0`.
 | `speaker_notes.md` | Timed talk track and question preparation |
 | `hand/` | Pending handwritten endpoint verification |
 | `prompts.md` | Raw Codex prompts and relevant raw responses |
-

@@ -334,14 +334,10 @@
   \begin{columns}[T,onlytextwidth]
     \column{0.60\textwidth}
       \centering
-      \IfFileExists{hand/prop3-endpoint.jpg}{%
-        \includegraphics[width=\linewidth,height=0.69\textheight,keepaspectratio]{hand/prop3-endpoint.jpg}%
+      \IfFileExists{hand/prop3-endpoint.png}{%
+        \includegraphics[width=\linewidth,height=0.69\textheight,keepaspectratio]{hand/prop3-endpoint.png}%
       }{%
-        \begin{tikzpicture}
-          \draw[very thick,dashed,Orange,rounded corners=4pt] (0,0) rectangle (8.0,4.5);
-          \node[align=center,text=Navy,font=\bfseries\Large] at (4,2.65) {Pending handwritten verification};
-          \node[align=center,text=gray!75!black] at (4,1.75) {\texttt{hand/prop3-endpoint.jpg}\\Endpoint $p_2=1$ of Proposition 3};
-        \end{tikzpicture}%
+        \PackageError{presentation}{Missing hand/prop3-endpoint.png}{The handwritten verification image is required for slide 12}%
       }
     \column{0.36\textwidth}
       \textbf{Two-minute derivation}\par\smallskip
